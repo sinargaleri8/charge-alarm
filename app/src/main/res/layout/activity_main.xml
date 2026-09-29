@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/bg_main">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="18dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Charge Alarm"
+                android:textColor="#152238"
+                android:textSize="30sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvStatusPill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="● Siap"
+                android:textColor="#16834B"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:background="@drawable/pill"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/card_blue"
+            android:padding="20dp"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:id="@+id/tvBattery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="80%"
+                android:textColor="#246BFE"
+                android:textSize="52sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvChargeState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔌 Tidak sedang charging"
+                android:textColor="#536174"
+                android:textSize="14sp"
+                android:layout_marginTop="2dp"/>
+
+            <ProgressBar
+                android:id="@+id/batteryProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:max="100"
+                android:progress="80"
+                android:layout_marginTop="18dp"
+                android:progressTint="#246BFE"/>
+
+            <TextView
+                android:id="@+id/tvEta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estimasi target: —"
+                android:textColor="#344054"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="14dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card"
+                android:padding="16dp"
+                android:layout_marginEnd="6dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⚡ Kecepatan" android:textColor="#667085" android:textSize="12sp"/>
+                <TextView android:id="@+id/tvSpeed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="— %/jam" android:textColor="#152238" android:textSize="20sp" android:textStyle="bold" android:layout_marginTop="6dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card"
+                android:padding="16dp"
+                android:layout_marginStart="6dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🌡️ Suhu baterai" android:textColor="#667085" android:textSize="12sp"/>
+                <TextView android:id="@+id/tvTemp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="— °C" android:textColor="#152238" android:textSize="20sp" android:textStyle="bold" android:layout_marginTop="6dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🎯 Target &amp; alarm"
+                android:textColor="#152238"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvLimit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Batas baterai: 80%"
+                android:textColor="#246BFE"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="14dp"/>
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="50"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="50%                                     100%"
+                android:textColor="#98A2B3"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/tvVolume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔊 Volume alarm: 80%"
+                android:textColor="#344054"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="14dp"/>
+
+            <SeekBar
+                android:id="@+id/seekBarVolume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="80"/>
+
+            <Button
+                android:id="@+id/btnTestSound"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="▶  Tes suara alarm"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textColor="#246BFE"
+                android:backgroundTint="#EAF3FF"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🗣️ Text-to-Speech"
+                android:textColor="#152238"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchTts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bacakan peringatan saat target tercapai"
+                android:textColor="#344054"
+                android:checked="true"
+                android:layout_marginTop="6dp"/>
+
+            <EditText
+                android:id="@+id/editTts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Baterai sudah 80 persen, silakan cabut charger."
+                android:textSize="14sp"
+                android:singleLine="false"
+                android:maxLines="3"
+                android:inputType="textCapSentences|textMultiLine"
+                android:padding="12dp"
+                android:layout_marginTop="6dp"/>
+
+            <TextView
+                android:id="@+id/tvTtsInterval"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔁 Ulangi setiap 10 detik"
+                android:textColor="#344054"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"/>
+
+            <SeekBar
+                android:id="@+id/seekBarTtsInterval"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="25"
+                android:progress="5"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🌡️ Temperature warning"
+                android:textColor="#152238"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchTempWarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Peringatkan jika suhu terlalu tinggi"
+                android:textColor="#344054"
+                android:checked="true"/>
+
+            <TextView
+                android:id="@+id/tvTempLimit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Batas suhu: 45°C"
+                android:textColor="#344054"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <SeekBar
+                android:id="@+id/seekBarTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="15"
+                android:progress="5"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚙️ Pengaturan"
+                android:textColor="#152238"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchAutoMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔌 Auto-start saat charger dicolok"
+                android:textColor="#344054"
+                android:checked="true"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchSound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔊 Bunyikan alarm"
+                android:textColor="#344054"
+                android:checked="true"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchVibrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📳 Getarkan HP"
+                android:textColor="#344054"
+                android:checked="true"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchSnooze"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⏰ Tunda alarm 1 menit"
+                android:textColor="#344054"
+                android:checked="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                android:layout_weight="1"
+                android:text="▶  Aktifkan"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_primary"
+                android:layout_marginEnd="6dp"/>
+
+            <Button
+                android:id="@+id/btnStop"
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                android:layout_weight="1"
+                android:text="■  Matikan"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_danger"
+                android:layout_marginStart="6dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnHistory"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="📊  Riwayat charging"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="#344054"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginBottom="10dp"/>
+
+        <Button
+            android:id="@+id/btnBattOpt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="🔋  Izinkan jalan di background"
+            android:textAllCaps="false"
+            android:textColor="#344054"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginBottom="18dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Auto-mode akan mulai memantau saat charger dicolok dan berhenti saat charger dicabut. TTS dan alarm akan terus mengingatkan sampai dihentikan atau charger dilepas."
+            android:textSize="12sp"
+            android:textColor="#667085"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginBottom="24dp"/>
+
+    </LinearLayout>
+</ScrollView>
