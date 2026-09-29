@@ -768,6 +768,7 @@ class BatteryMonitorService : Service() {
         val prefs = getSharedPreferences(MainActivity.PREFS, MODE_PRIVATE)
         val enabled = prefs.getBoolean(MainActivity.KEY_TEMP_WARNING, true)
         val limit = prefs.getInt(MainActivity.KEY_TEMP_LIMIT, 45).coerceIn(40, 55)
+        val mgr = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
         if (!enabled) {
             tempWarningActive = false
@@ -776,7 +777,6 @@ class BatteryMonitorService : Service() {
 
         if (tempC >= limit) {
             val now = System.currentTimeMillis()
-            val mgr = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             mgr.notify(
                 NOTIF_ID_TEMP,
                 NotificationCompat.Builder(this, CHANNEL_TEMP)
